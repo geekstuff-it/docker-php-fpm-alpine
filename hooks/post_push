@@ -1,0 +1,11 @@
+#!/bin/bash
+
+
+SCRIPT_DIR="$(dirname "$0")"
+source "${SCRIPT_DIR}/common"
+
+for BUILD_PARAMS in $(getBuildParams); do
+  TAG=$(echo $BUILD_PARAMS | cut -d'|' -f2)
+  #echo "##### Push tag ${TAG} #####"
+  echo docker push ${DOCKER_REPO}:${TAG}
+done

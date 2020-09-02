@@ -1,0 +1,23 @@
+#!/bin/bash
+
+
+SCRIPT_DIR="$(dirname "$0")"
+source "${SCRIPT_DIR}/common"
+
+#echo "##### Build default tag ${DOCKER_TAG} from ${PHP_VERSION_TAG} #####"
+#IS_MASTER_BUILD=$([ "$SOURCE_BRANCH" == "master" ] && echo 1 || echo 0)
+#if [ $IS_MASTER_BUILD -eq 1 -a "$(echo $IMAGE_NAME | grep -o 'master')" == "" ]; then
+#  DEFAULT_IMAGE_NAME="${IMAGE_NAME}-master"
+#else
+#  DEFAULT_IMAGE_NAME="${IMAGE_NAME}"
+#fi
+#echo docker build --build-arg PHP_VERSION_TAG=${PHP_VERSION_TAG} -f $DOCKERFILE_PATH -t ${DEFAULT_IMAGE_NAME} .
+
+echo docker build --build-arg PHP_VERSION_TAG=${PHP_VERSION_TAG} -f $DOCKERFILE_PATH -t ${IMAGE_NAME} .
+
+for BUILD_PARAMS in $(getBuildParams $IS_MASTER_BUILD); do
+  FROM=$(echo $BUILD_PARAMS | cut -d'|' -f1)
+  TAG=$(echo $BUILD_PARAMS | cut -d'|' -f2)
+  #echo "##### Build tag ${TAG} from ${FROM} #####"
+  echo docker build --build-arg PHP_VERSION_TAG=${FROM} -f ${DOCKERFILE_PATH} -t ${DOCKER_REPO}:${TAG} .
+done

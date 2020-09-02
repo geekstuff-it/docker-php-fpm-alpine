@@ -1,6 +1,6 @@
-ARG VERSION=fpm-alpine
+ARG PHP_VERSION_TAG=fpm-alpine
 
-FROM php:${VERSION}
+FROM php:${PHP_VERSION_TAG}
 
 # install extensions build dependencies, build extensions, delete dependencies.
 RUN apk add --update --no-cache --virtual .build-dependencies \

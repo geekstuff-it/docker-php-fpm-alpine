@@ -1,0 +1,21 @@
+#!/bin/sh
+
+
+if [ "$1" != "" ]; then
+  PHP_USER_ID="$1"
+fi
+
+if [ "$PHP_USER_ID" == "" ]; then
+  echo "The argument ID for the php user is required"
+  exit 1
+fi
+
+if id "$PHP_USER_ID" &>/dev/null; then
+  echo "User with id/group $PHP_USER_ID already exists"
+  exit 1
+fi
+
+set -eux \
+  && adduser --uid ${PHP_USER_ID} --disabled-password --gecos ${PHP_USER_NAME} ${PHP_USER_NAME} ${PHP_USER_NAME} \
+  && mkdir -p /home/${PHP_USER_NAME}/bin \
+  && chown ${PHP_USER_NAME}: /app /home/${PHP_USER_NAME}/bin

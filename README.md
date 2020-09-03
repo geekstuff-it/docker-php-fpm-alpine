@@ -12,5 +12,3 @@ Builds: https://hub.docker.com/r/geekstuffreal/php-fpm-alpine
 Duplicated with Dev tools: https://github.com/geekstuff-it/docker-php-buildtools-alpine
 
 Sample usage: (TODO publish and link)
-
-.. testing docker hub building process ..

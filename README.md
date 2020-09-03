@@ -11,4 +11,9 @@ Source: https://github.com/geekstuff-it/docker-php-fpm-alpine
 Builds: https://hub.docker.com/r/geekstuffreal/php-fpm-alpine  
 Duplicated with Dev tools: https://github.com/geekstuff-it/docker-php-buildtools-alpine
 
-Sample usage: (TODO publish and link)
+
+## TODO
+- add sample usage
+- trigger matching buildtools builds in this repo post_build hook
+- try/fix xdebug which could be trickier with nginx in between.. (customisable nginx timeout overridden and super extended in dev stage sounds nice)
+- get it tried out by someone using docker-machine

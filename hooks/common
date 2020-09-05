@@ -2,7 +2,7 @@
 
 
 IS_MASTER_BUILD=$([ "$SOURCE_BRANCH" == "master" ] && echo 1 || echo 0)
-IS_RELEASE_BUILD=$((echo "$SOURCE_BRANCH" | grep -Pq "v[0-9]+\.[0-9]+\.[0-9]+") && echo 1 || echo 0)
+IS_RELEASE_BUILD=$((echo "$SOURCE_BRANCH" | grep -Pq "v[0-9]+\.[0-9]+") && echo 1 || echo 0)
 
 # return list of "<phpFromSource>|<targetTag>" depending if we are building against master or a specific release
 getBuildParams() {

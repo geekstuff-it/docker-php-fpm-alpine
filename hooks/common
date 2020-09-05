@@ -17,6 +17,7 @@ getBuildParams() {
     if [ $IS_MASTER_BUILD -eq 1 ]; then
       echo "${PHP_MINOR}-fpm-alpine|${PHP_MINOR}-master"
     elif [ $IS_RELEASE_BUILD -eq 1 ]; then
+      echo "${PHP_MINOR}-fpm-alpine|${PHP_MINOR}"
       echo "${PHP_MINOR}-fpm-alpine|${PHP_MINOR}-v${MINOR_RELEASE}"
     fi
   done
@@ -24,7 +25,7 @@ getBuildParams() {
   if [ $IS_RELEASE_BUILD -eq 1 ]; then
     for PHP_MINOR in $(echo "$PHP_TAGS" | grep -Po "^[0-9]+\.[0-9]+" | sort -r | uniq); do
       PHP_VERSION=$(echo "$PHP_TAGS" | grep "$PHP_MINOR" | sort -r | head -n1)
-      echo "${PHP_VERSION}-fpm-alpine|${PHP_VERSION}-v${RELEASE}"
+      #echo "${PHP_VERSION}-fpm-alpine|${PHP_VERSION}-v${RELEASE}"
     done
   fi
 }

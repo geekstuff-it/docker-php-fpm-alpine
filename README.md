@@ -2,10 +2,12 @@
 
 
 The intention here is to instantly be able to:
-- spawn a new php project,
-- have an easy and full dev environment with xdebug
-- a proper php-fpm docker image build that will turn on all optimisations like infinite opcache or preloading
-- a separate nginx build that only has public/ content
+- Spawn a new php project and work it, without having to install any software other than docker on your host.
+- Have it as easy and as simple as possible, with a full dev environment and xdebug working.
+- A proper php-fpm docker image build that will turn on all optimisations like infinite opcache or preloading
+- A separate nginx build that only has public/ content
+- Smallest possible image size. Not only by using alpine, but by being super careful to not keep any
+  dev libraries and other build artifacts in dev or prod end stages.
 
 Source: https://github.com/geekstuff-it/docker-php-fpm-alpine  
 Builds: https://hub.docker.com/r/geekstuffreal/php-fpm-alpine  

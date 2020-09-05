@@ -10,5 +10,3 @@ for BUILD_PARAMS in $(getBuildParams); do
   echo docker push ${DOCKER_REPO}:${TAG}
   docker push ${DOCKER_REPO}:${TAG}
 done
-
-# TODO trigger related builds for php-buildtools-alpine

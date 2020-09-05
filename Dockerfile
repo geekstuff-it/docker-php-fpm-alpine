@@ -41,7 +41,9 @@ ENV PHP_USER_NAME=${PHP_USER_NAME} \
     TZ=UTC
 
 # Create /app folder
-RUN mkdir -p /app
+RUN mkdir -p /app /scripts \
+ && touch /app/.empty
+
 WORKDIR /app
 
 # other php ini
@@ -52,9 +54,11 @@ RUN echo "chdir = /app" > /usr/local/etc/php-fpm.d/zz-app.conf \
  && sed -i 's/user = www-data//g' /usr/local/etc/php-fpm.d/www.conf \
  && sed -i 's/group = www-data//g' /usr/local/etc/php-fpm.d/www.conf
 
-# Add php user create script
+# Copy some helper scripts
 COPY assets/create-php-user /usr/local/bin/
-RUN chmod +x /usr/local/bin/create-php-user
+COPY assets/php-init /usr/local/bin/php-init
+COPY assets/install-* /scripts/
+RUN chmod +x /usr/local/bin/create-php-user /usr/local/bin/php-init /scripts/*
 
 # Usage should create and switch to php user to build dev environment
 # RUN create-php-user

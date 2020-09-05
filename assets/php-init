@@ -1,0 +1,8 @@
+#!/bin/sh
+
+
+/scripts/install-buildtools
+/scripts/install-framework-installers
+/scripts/install-dockerizer
+
+php /usr/local/dockerizer/init

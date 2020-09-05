@@ -13,7 +13,8 @@ Dockerizer app: https://github.com/geekstuff-it/php-fpm-nginx-alpine-dockerizer
 
 
 ## Example how to use this & buildtools to kickstart and/or dockerize your php-fpm nginx app on alpine.
-For the examples here, we will use php 7.4.
+For the examples here, we will use php `7.4.9`. You can use `latest`, `7.3` and other variants as well.
+(see [here for list of tags](https://hub.docker.com/r/geekstuffreal/php-fpm-alpine/tags) you can choose from)
 
 ### Use buildtools to get into a container with php and tools to install your framework and dockerize it.
 ```

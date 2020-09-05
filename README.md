@@ -44,7 +44,7 @@ docker-compose up --build
 docker-compose -f docker-compose.prod-test.yml up --build
 ```
 You should now be able to see the result in http://localhost:8080/
-(you can change the 8080 port with `LOCAL_HTTP_PORT=8083 docker-compose ...`)
+(you can change the 8080 port with `LOCAL_HTTP_PORT=8083 docker-compose up`)
 
 ## TODO
 - add license

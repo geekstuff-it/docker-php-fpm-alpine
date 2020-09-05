@@ -20,7 +20,7 @@ For the examples here, we will use php `7.4.9`. You can use `latest`, `7.3` and 
 ```
 mkdir super-project
 cd super-project
-docker run --rm -v $(pwd):/app -it geekstuffreal/php-fpm-alpine:7.4-master php-init
+docker run --rm -v $(pwd):/app -it geekstuffreal/php-fpm-alpine:7.4.9 php-init
 ```
 
 ### Within the init shell that the above will land you into, create the symfony demo project

@@ -2,7 +2,9 @@
 
 
 /scripts/install-buildtools
-/scripts/install-framework-installers
 /scripts/install-dockerizer
+
+ln -s /scripts/install-laravel-cli /usr/local/bin/install-laravel-cli
+ln -s /scripts/install-symfony-cli /usr/local/bin/install-symfony-cli
 
 php /usr/local/dockerizer/init

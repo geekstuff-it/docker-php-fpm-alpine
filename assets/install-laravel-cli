@@ -1,0 +1,9 @@
+#!/bin/sh
+
+
+## symfony
+echo "# Install laravel cli (installer)"
+composer global require laravel/installer --quiet --no-ansi --no-interaction
+ln -s ~/.composer/vendor/bin/laravel ~/bin/laravel
+
+echo "  Call with \`laravel\`"

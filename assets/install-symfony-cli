@@ -1,0 +1,9 @@
+#!/bin/sh
+
+
+## symfony
+echo "# Install symfony cli (installer)"
+sh -c 'curl https://get.symfony.com/cli/installer | bash -s -- --install-dir ~/bin' &>/dev/null
+chmod +x ~/bin/symfony
+
+echo "  Call with \`symfony\`"

@@ -11,7 +11,7 @@ The intention here is to instantly be able to:
 
 Source: https://github.com/geekstuff-it/docker-php-fpm-alpine  
 Builds: https://hub.docker.com/r/geekstuffreal/php-fpm-alpine  
-Dockerizer app: https://github.com/geekstuff-it/php-fpm-nginx-alpine-dockerizer
+Dockerizer app: https://github.com/geekstuff-it/php-fpm-nginx-alpine-dockerizer  
 Nginx slim base: https://hub.docker.com/r/geekstuffreal/nginx-php-alpine
 
 

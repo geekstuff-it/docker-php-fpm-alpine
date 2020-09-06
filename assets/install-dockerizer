@@ -3,7 +3,10 @@
 
 echo "# Install dockerizer (https://github.com/geekstuff-it/php-fpm-nginx-alpine-dockerizer)"
 
-DOCKERIZER_VERSION=$(curl 'https://api.github.com/repos/geekstuff-it/php-fpm-nginx-alpine-dockerizer/releases/latest' 2>/dev/null | jq -r '.tag_name')
+if [ "$DOCKERIZER_VERSION" == "" ]; then
+  DOCKERIZER_VERSION=$(curl 'https://api.github.com/repos/geekstuff-it/php-fpm-nginx-alpine-dockerizer/releases/latest' 2>/dev/null | jq -r '.tag_name')
+fi
+
 mkdir -p /usr/local/dockerizer
 git clone -b ${DOCKERIZER_VERSION} --quiet --depth 1 --single-branch https://github.com/geekstuff-it/php-fpm-nginx-alpine-dockerizer /usr/local/dockerizer 2>/dev/null
 ln -s /usr/local/dockerizer/dockerize /usr/local/bin/php-dockerize

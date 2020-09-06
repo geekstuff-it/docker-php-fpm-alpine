@@ -1,7 +1,7 @@
 #!/bin/sh
 
 
-echo "# Download and install dockerizer (https://github.com/geekstuff-it/php-fpm-nginx-alpine-dockerizer)"
+echo "# Install dockerizer (https://github.com/geekstuff-it/php-fpm-nginx-alpine-dockerizer)"
 
 DOCKERIZER_VERSION=$(curl 'https://api.github.com/repos/geekstuff-it/php-fpm-nginx-alpine-dockerizer/releases/latest' 2>/dev/null | jq -r '.tag_name')
 mkdir -p /usr/local/dockerizer

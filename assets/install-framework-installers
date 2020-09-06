@@ -1,7 +1,0 @@
-#!/bin/sh
-
-
-## symfony
-echo "# Download symfony installer - in case you would want to use it to create a new project."
-sh -c 'curl https://get.symfony.com/cli/installer | bash -s -- --install-dir /usr/local/bin' &>/dev/null
-chmod +x /usr/local/bin/symfony

@@ -1,17 +1,18 @@
-# geekstuff-it/php-fpm-alpine
+# geekstuff-it/docker-php-fpm-alpine
 
 
 The intention here is to instantly be able to:
 - Spawn a new php project and work it, without having to install any software other than docker on your host.
 - Have it as easy and as simple as possible, with a full dev environment and xdebug working.
-- A proper php-fpm docker image build that will turn on all optimisations like infinite opcache or preloading
-- A separate nginx build that only has public/ content
+- A proper php-fpm docker image build that will turn on all optimisations like infinite opcache or preloading in prod stage.
+- A separate nginx build that only has public/ content.
 - Smallest possible image size. Not only by using alpine, but by being super careful to not keep any
   dev libraries and other build artifacts in dev or prod end stages.
 
 Source: https://github.com/geekstuff-it/docker-php-fpm-alpine  
 Builds: https://hub.docker.com/r/geekstuffreal/php-fpm-alpine  
 Dockerizer app: https://github.com/geekstuff-it/php-fpm-nginx-alpine-dockerizer
+Nginx slim base: https://hub.docker.com/r/geekstuffreal/nginx-php-alpine
 
 
 ## Example how to use this to kickstart and/or dockerize your php-fpm nginx app on alpine.
@@ -86,13 +87,12 @@ docker exec mycode-php php bin/console about
 ```
 
 ## docker-compose
-
 Dev environment:
 ```
 docker-compose up --build
 ```
 
-Prod test:
+Prod test environment:
 ```
 docker-compose -f docker-compose.prod-test.yml up --build
 ```
@@ -100,13 +100,17 @@ docker-compose -f docker-compose.prod-test.yml up --build
 TIP: If you need to use a different host port than 8080, prepend your docker-compose up with `LOCAL_HTTP_PORT=8083`
 
 
+## Some size numbers
+On php 7.4.9, with `symfony new --demo --no-git .`, `php-dockerize` and `docker-compose -f docker-compose.prod-test.yml up --build`:  
+php-fpm image: 171MB  
+nginx image: 27.8MB
+
+
 ## TODO
-- add contribution guide
-- also reassess build tags
-  - maybe adjust auto tags creation to include phpVersion without our version (our latest release being implied)
+- double check wording everywhere to make sure we don't make it sound this is more for symfony than anything else.
 - try xdebug connect back which could be trickier with nginx in between this time..
   (customisable nginx timeout overridden and super extended in dev stage sounds nice)
 - get it tried out by someone using docker-machine. file init permissions should not be an issue there as docker-machine makes them irrelevant I believe.
   - not sure about non docker-machine users using non default main id 1000. Some minor tweaks left to do to handle this.
-- consider renaming prod-test to pkg-test
-- consider using twig blocks to simply multi framework options
+- add contribution guide.
+- consider renaming prod-test to pkg-test.

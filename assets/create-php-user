@@ -18,4 +18,5 @@ fi
 set -eux \
   && adduser --uid ${PHP_USER_ID} --disabled-password --gecos ${PHP_USER_NAME} ${PHP_USER_NAME} ${PHP_USER_NAME} \
   && mkdir -p /home/${PHP_USER_NAME}/bin \
-  && chown ${PHP_USER_NAME}: /app /home/${PHP_USER_NAME}/bin
+  && chown ${PHP_USER_NAME}: /app /home/${PHP_USER_NAME}/bin \
+  && echo 'export PATH=~/bin:$PATH' > /home/${PHP_USER_NAME}/.profile
